@@ -136,6 +136,7 @@ a.list-group-item:hover, a.list-group-item:focus {
 
 footer {
     margin-top: 2em;
+    padding-bottom: 2em;
 }
 footer a, footer, footer a:hover{
     color: white;
