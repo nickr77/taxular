@@ -134,3 +134,19 @@ a.list-group-item:hover, a.list-group-item:focus {
     font-weight: 900;
 }
 
+footer {
+    margin-top: 2em;
+}
+footer a, footer, footer a:hover{
+    color: white;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+footer a {
+    font-size: 1.5em;
+}
+footer img {
+    margin-right: 1em
+}
+
+
