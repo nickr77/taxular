@@ -12,7 +12,7 @@ salesTaxApp.controller('calcCtrl', function ($scope, stateInfoService) {
     $scope.currentState = -1
     $scope.price;
     
-    $scope.select = function(state, index) { 
+    $scope.select = function(state, index) { //selects new state
         $scope.selected = state;
         $scope.currentState = index;
     };
