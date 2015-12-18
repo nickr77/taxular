@@ -113,11 +113,11 @@ a.list-group-item:hover, a.list-group-item:focus {
     margin-left: 1em;
     background: blue;
 }
-::-webkit-scrollbar {
+.main ::-webkit-scrollbar {
     width: 1em;
 }
  
-::-webkit-scrollbar-track { 
+.main ::-webkit-scrollbar-track { 
     border-radius: 10px;
 }
  
