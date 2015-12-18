@@ -6,8 +6,9 @@
         <link rel="stylesheet" href="css/pageStyle.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,400italic' rel='stylesheet' type='text/css'>
         <script src="vendors/angular.min.js"></script>
+        <script src="js/app.js"></script>
     </head>
-    <body ng-app="salesTaxApp">
+    <body ng-app="salesTaxApp" class="ng-scope">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand">Taxular</a>
@@ -18,35 +19,35 @@
         <div class="container title text-center">
             <h1>Taxular</h1>
         </div>
-        <div class="container main">
+        <div ng-controller="calcCtrl" class="container main">
             <div class="row">
                 <div class="col-md-6">
                     <div class="container listTitle">
                         <h1 class="text-center">Select a State</h1>
                     </div>
                     <div class="container list">
-                        
                         <div class="list-group txulr-list-grp">
-                            <a href="" class="list-group-item txulr-list clearfix">Alabama<span class="label label-tax">5%</span></a>
-                            <a href="" class="list-group-item txulr-list">Texas</a>
-                            <a href="" class="list-group-item txulr-list">Tennessee</a>
-                            <a href="" class="list-group-item txulr-list">Tennessee</a>
-                            <a href="" class="list-group-item txulr-list">Tennessee</a>
-                            <a href="" class="list-group-item txulr-list">Tennessee</a>
-                            <a href="" class="list-group-item txulr-list">Tennessee</a>
+                            <a href="" ng-click="select(state, $index)" ng-class="{active: isActive(state)}" ng-repeat="state in states" class="list-group-item txulr-list">{{state.name}}</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="container right">
                         <div class="container input">
-                            <div id="money">
-                                <input class="text-center" type="text" placeholder="Price">
+                            <div id="money" ng-click="checkIfSelected()">
+                                <input class="text-center" type="number" placeholder="Price" ng-disabled="currentState == -1" ng-model="price"
+                                       min="0" max="500000">
+                                
                             </div>
                         
                         </div>
                         <div class="container output">
-                            <h1 class="text-center">Cost</h1> <!-- Is hidden after calculate is clicked -->
+                            <h1 ng-if="price == null" class="text-center">Cost</h1> <!-- Is hidden after calculate is clicked -->
+                            <div ng-if="checkNumberValid()" class="text-center costInfo">
+                                <p>Sales Tax Rate in {{states[currentState].name}} is {{(states[currentState].tax*100) | number:3 }}% </p>
+                                <p>{{price}} + {{(states[currentState].tax*100) | number:3 }}%</p>
+                                <p>${{price*states[currentState].tax + price | number: 2}}</p>
+                            </div>
                         
                         </div>
                     </div>

@@ -1,6 +1,10 @@
 var salesTaxApp = angular.module('salesTaxApp', []);
 
-salesTaxApp.controller('stateListCtrl', function ($scope) {
+
+
+
+salesTaxApp.controller('calcCtrl', function ($scope) {
+    
     $scope.states = [
         {
             'code': 'CA',
@@ -23,6 +27,26 @@ salesTaxApp.controller('stateListCtrl', function ($scope) {
             'tax': 0.03
         },
     ];
+    $scope.currentState = -1
+    $scope.price;
+    
+    $scope.select = function(state, index) {
+        $scope.selected = state;
+        $scope.currentState = index;
+    };
+    $scope.isActive = function(state) {
+        return $scope.selected === state;
+    };
+    $scope.checkIfSelected = function(){
+        if ($scope.currentState == -1){
+            alert("Please Select a State First");
+        }
+        
+    };
+    $scope.checkNumberValid = function(){
+        return angular.isNumber($scope.price);
+    };
     
     
 });
+
