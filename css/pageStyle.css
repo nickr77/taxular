@@ -3,6 +3,16 @@ body {
     background: #59bfff;
 }
 
+.navbar.navbar-default{
+    background: #59bfff;
+    color: white;
+    border: none;
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-text, .navbar-default .navbar-brand:hover{
+    color: white;
+    
+}
+
 
 .container.main {
     margin-top: 10em;
@@ -102,5 +112,25 @@ a.list-group-item:hover, a.list-group-item:focus {
 .label-tax{
     margin-left: 1em;
     background: blue;
+}
+::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+::-webkit-scrollbar-track { 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.56); 
+}
+.costInfo{
+    color: white;
+    font-size: 1.2em;
+}
+.finalCost{
+    font-size: 4em;
+    font-weight: 900;
 }
 
