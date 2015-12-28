@@ -26,6 +26,12 @@ salesTaxApp.controller('calcCtrl', function ($scope, stateInfoService) {
         
     };
     $scope.checkNumberValid = function(){
+        var valid = angular.isNumber($scope.price);
+        if (valid == true){
+            if ($scope.price > 100000000 || $scope.price < 0){
+                return false;
+            }
+        }
         return angular.isNumber($scope.price);
     };   
 });

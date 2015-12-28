@@ -35,14 +35,15 @@
                     <div class="container right">
                         <div class="container input">
                             <div id="money" ng-click="checkIfSelected()">
-                                <input class="text-center" type="number" placeholder="Price" ng-disabled="currentState == -1" ng-model="price"
-                                       min="0" max="500000">
+                                <input class="text-center" type="number" placeholder="Price" ng-disabled="currentState == -1" ng-model="price">
                                 
                             </div>
                         
                         </div>
                         <div class="container output">
                             <h1 ng-if="price == null" class="text-center">Cost</h1> <!-- Is hidden after calculate is clicked -->
+                            <h2 ng-if="price > 100000000" class="text-center">Price must not be over 100 million dollars</h2>
+                            <h2 ng-if="price < 0" class="text-center">No Negative Numbers Allowed</h2>
                             <div ng-if="checkNumberValid()" class="text-center costInfo">
                                 <p>Sales Tax Rate in {{states[currentState].name}} is {{(states[currentState].tax*100) | number:3 }}% </p>
                                 <p>{{price}} + {{(states[currentState].tax*100) | number:3 }}%</p>
